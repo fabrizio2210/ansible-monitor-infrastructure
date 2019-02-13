@@ -1,0 +1,16 @@
+---
+
+#################
+# Other setups
+
+- hosts: zabbix-agents
+  tasks:
+  - name: role basicSetup
+    include_role:
+      name: basicSetup
+
+  - name: role Zabbix Agent
+    include_role:
+      name: zabbix-agent
+
+
