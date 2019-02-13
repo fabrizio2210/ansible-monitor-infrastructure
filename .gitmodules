@@ -4,3 +4,6 @@
 [submodule "roles/zabbix-agent"]
 	path = roles/zabbix-agent
 	url = https://github.com/fabrizio2210/ansible-zabbix-agent.git
+[submodule "module-templates/disk-performance"]
+	path = module-templates/disk-performance
+	url = https://github.com/grundic/zabbix-disk-performance.git

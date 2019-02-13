@@ -1,16 +1,21 @@
 ---
-
-#################
-# Other setups
-
 - hosts: zabbix-agents
   tasks:
-  - name: role basicSetup
-    include_role:
-      name: basicSetup
+#  - name: role basicSetup
+#    include_role:
+#      name: basicSetup
+#
+#  - name: role Zabbix Agent
+#    include_role:
+#      name: zabbix-agent
+#
+  - name: deploy disk performance
+    include_tasks: tasks/deploy_disk_performance.yml
 
-  - name: role Zabbix Agent
-    include_role:
+
+  handlers:
+  - name: restart agent
+    service:
       name: zabbix-agent
-
+      state: restarted
 
