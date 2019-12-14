@@ -7,3 +7,6 @@
 [submodule "module-templates/disk-performance"]
 	path = module-templates/disk-performance
 	url = https://github.com/grundic/zabbix-disk-performance.git
+[submodule "module-templates/zabbix-tcp"]
+	path = module-templates/zabbix-tcp
+	url = https://github.com/omni-lchen/zabbix-tcp.git

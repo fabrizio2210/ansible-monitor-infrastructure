@@ -12,6 +12,8 @@
   - name: deploy disk performance
     include_tasks: tasks/deploy_disk_performance.yml
 
+  - name: deploy tcp monitoring
+    include_tasks: tasks/deploy_tcp.yml
 
   handlers:
   - name: restart agent
