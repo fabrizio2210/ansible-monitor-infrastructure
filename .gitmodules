@@ -10,3 +10,6 @@
 [submodule "module-templates/zabbix-tcp"]
 	path = module-templates/zabbix-tcp
 	url = https://github.com/omni-lchen/zabbix-tcp.git
+[submodule "module-templates/raspberry-cpu"]
+	path = module-templates/raspberry-cpu
+	url = https://gitlab.com/Qrl/zabbix.git

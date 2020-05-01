@@ -5,6 +5,9 @@
     include_role:
       name: basicSetup
 
+  - debug:
+      var: group_names
+
   - name: role Zabbix Agent
     include_role:
       name: zabbix-agent
@@ -14,6 +17,10 @@
 
   - name: deploy tcp monitoring
     include_tasks: tasks/deploy_tcp.yml
+
+  - name: deploy raspberry CPU monitoring
+    include_tasks: tasks/deploy_raspberry_cpu.yml
+    when: "'raspberry-pis' in  group_names"
 
   handlers:
   - name: restart agent

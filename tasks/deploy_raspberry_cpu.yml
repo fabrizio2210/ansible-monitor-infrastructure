@@ -1,0 +1,15 @@
+---
+- name: RASPBERRY CPU | Copy user parameters
+  copy:
+    src: module-templates/raspberry-cpu/scripts/userparameter_rpi.conf
+    dest: /etc/zabbix/zabbix_agentd.d/
+    mode: 0644
+  notify:
+    - restart agent
+
+- name: RASPBERRY CPU | Add group to user zabbix
+  user:
+    name: zabbix
+    append: yes
+    groups: video
+
