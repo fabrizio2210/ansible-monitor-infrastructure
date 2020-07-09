@@ -13,3 +13,6 @@
 [submodule "module-templates/raspberry-cpu"]
 	path = module-templates/raspberry-cpu
 	url = https://gitlab.com/Qrl/zabbix.git
+[submodule "module-templates/zabbix-glusterfs"]
+	path = module-templates/zabbix-glusterfs
+	url = https://github.com/MrCirca/zabbix-glusterfs

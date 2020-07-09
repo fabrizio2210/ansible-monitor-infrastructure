@@ -1,0 +1,37 @@
+---
+- name: GLUSTERFS | Download gstatus
+  git:
+    repo: "https://github.com/gluster/gstatus.git"
+    dest: /usr/local/bin/gstatus-master/
+
+- name: GLUSTERFS | Be executed
+  file:
+    path: /usr/local/bin/gstatus-master/gstatus.py
+    mode: 755
+
+- name: GLUSTERFS | Create link to be executed
+  file:
+    src: /usr/local/bin/gstatus-master/gstatus.py
+    dest: /usr/local/bin/gstatus
+    state: link
+
+- name: GLUSTERFS | Copy user parameters
+  copy:
+    src: module-templates/zabbix-glusterfs/glusterfs.conf
+    dest: /etc/zabbix/zabbix_agentd.d/
+    mode: 0644
+  notify:
+    - restart agent
+
+- name: GLUSTERFS | Copy binary
+  copy:
+    src: module-templates/zabbix-glusterfs/gstatus_discovery.py
+    dest: /usr/local/bin/
+    mode: 0755
+
+- name: GLUSTERFS | Add sudoers user zabbix
+  copy: 
+    dest: /etc/sudoers.d/monitor-glusterfs
+    content: "zabbix ALL=(ALL) NOPASSWD: /usr/local/bin/gstatus_discovery.py\n"
+    mode: 0440
+    
