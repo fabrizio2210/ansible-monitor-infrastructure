@@ -1,5 +1,5 @@
 ---
-- hosts: zabbix-agents
+- hosts: zabbix_agents
   vars:
     zabbix_agent_timeout: 10
   tasks:
@@ -22,11 +22,11 @@
 
   - name: deploy raspberry CPU monitoring
     include_tasks: tasks/deploy_raspberry_cpu.yml
-    when: "'raspberry-pis' in  group_names"
+    when: "'raspberry_pis' in  group_names"
 
   - name: deploy glusterfs monitoring
     include_tasks: tasks/deploy_gluster.yml
-    when: "'docker-bare_metal' in  group_names"
+    when: "'docker_bare_metal' in  group_names"
 
   handlers:
   - name: restart agent
