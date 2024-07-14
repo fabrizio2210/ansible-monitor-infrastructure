@@ -1,19 +1,18 @@
 ---
+- name: GLUSTERFS | Install git
+  apt:
+    name: git
+    state: present
+
 - name: GLUSTERFS | Download gstatus
-  git:
-    repo: "https://github.com/gluster/gstatus.git"
-    dest: /usr/local/bin/gstatus-master/
+  get_url:
+    url: https://github.com/gluster/gstatus/releases/latest/download/gstatus
+    dest: /usr/local/bin/gstatus
 
 - name: GLUSTERFS | Be executed
   file:
-    path: /usr/local/bin/gstatus-master/gstatus.py
+    path: /usr/local/bin/gstatus
     mode: 755
-
-- name: GLUSTERFS | Create link to be executed
-  file:
-    src: /usr/local/bin/gstatus-master/gstatus.py
-    dest: /usr/local/bin/gstatus
-    state: link
 
 - name: GLUSTERFS | Copy user parameters
   copy:
