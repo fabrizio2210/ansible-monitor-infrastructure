@@ -1,7 +1,7 @@
 ---
-- name: GLUSTERFS | Install git
+- name: GLUSTERFS | Install python3-packaging
   apt:
-    name: git
+    name: python3-packaging
     state: present
 
 - name: GLUSTERFS | Download gstatus
